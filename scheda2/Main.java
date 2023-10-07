@@ -4,6 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
+        Questi sono gli esercizi relativi al modulo 1 scheda 2
+         */
+
+
      //   Esercizio1.occorrenze('a',"CAsa");
         System.out.println(" ------------- ");
        // Esercizio2.invertiStringa("ciao");
