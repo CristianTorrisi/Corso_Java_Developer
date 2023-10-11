@@ -11,5 +11,7 @@ public class Test {
       //  System.out.println(Esercizio3.isPalindroma("ACCA"));
       //  System.out.println(Arrays.toString(Esercizio4.tartaglia(5)));
        //   Esercizio5.printPerfet(1000);
+      //  int[] arr = {1,4,8,10,22,3,5};
+      //  System.out.println(Esercizio6.binarySearch(arr,5));
     }
 }
