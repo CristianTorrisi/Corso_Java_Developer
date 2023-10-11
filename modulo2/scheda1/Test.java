@@ -1,4 +1,4 @@
-package modulo2;
+package modulo2.scheda1;
 
 import java.util.Arrays;
 
@@ -14,6 +14,7 @@ public class Test {
      //   System.out.println(Arrays.toString(Esercizio4.multiDisp(array)));
        // System.out.println(Arrays.toString(Esercizio5.tabellina(3,10)));
      //   Esercizio6.fibonacci(45);
-        Esercizio7.isAnagrammi("CAT","AbT");
+     //   Esercizio7.isAnagrammi("CAT","AbT");
+      //  Esercizio8.minMax();
     }
 }

@@ -1,4 +1,4 @@
-package modulo2;
+package modulo2.scheda1;
 
 import java.util.Arrays;
 
