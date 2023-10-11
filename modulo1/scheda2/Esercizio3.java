@@ -1,4 +1,4 @@
-package scheda2;
+package modulo1.scheda2;
 
 public class Esercizio3 {
     /*

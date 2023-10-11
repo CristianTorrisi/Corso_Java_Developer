@@ -12,6 +12,8 @@ public class Test {
      //   System.out.println(" ---------- ");
      //   int[] array = new int[]{1,2,3,4,5};
      //   System.out.println(Arrays.toString(Esercizio4.multiDisp(array)));
-
+       // System.out.println(Arrays.toString(Esercizio5.tabellina(3,10)));
+     //   Esercizio6.fibonacci(45);
+        Esercizio7.isAnagrammi("CAT","AbT");
     }
 }
