@@ -7,7 +7,7 @@ public class Giocatore {
     private String cognome;
     private static int idTot = 0;
 
-    public Giocatore(int id, String nome, String cognome) {
+    public Giocatore( String nome, String cognome) {
         this.id = idTot;
         idTot++;
         this.nome = nome;
@@ -39,6 +39,6 @@ public class Giocatore {
     }
 
     public String toString(){
-        return nome + " " + cognome;
+        return nome + " " + cognome +"\n";
     }
 }

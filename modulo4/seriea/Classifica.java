@@ -19,4 +19,6 @@ public class Classifica {
     public void setCampionato(Squadra[] campionato) {
         this.campionato = campionato;
     }
+
+
 }

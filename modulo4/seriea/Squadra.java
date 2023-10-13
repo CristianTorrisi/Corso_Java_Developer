@@ -10,11 +10,11 @@ public class Squadra {
     private int punteggio;
     private static int idTot = 0;
 
-    public Squadra(int id, String nome, Giocatore[] rosa, int gol_fatti, int gol_subiti, int punteggio) {
+    public Squadra( String nome, Giocatore[] rosa, int gol_fatti, int gol_subiti, int punteggio) {
         this.id = idTot;
         idTot++;
         this.nome = nome;
-        this.rosa = new Giocatore[0];
+        this.rosa = rosa;
         this.gol_fatti = gol_fatti;
         this.gol_subiti = gol_subiti;
         this.punteggio = punteggio;
@@ -73,4 +73,59 @@ public class Squadra {
     public void setPunteggio(int punteggio) {
         this.punteggio = punteggio;
     }
-}
+
+    /**
+     * Aggiungi un giocatore ad una squadra
+     * @param g giocatore da aggiungere
+     */
+    public void addPlayer(Giocatore g){
+        Giocatore[] tmp = new Giocatore[rosa.length+1];
+
+        for (int i = 0; i < rosa.length; i++) {
+            tmp[i] = rosa[i];
+        }
+        tmp[rosa.length] = g;
+        rosa = tmp;
+    }
+
+    /**
+     * Rimuovi un giocatore ad una squadra
+     * @param g giocatore da eliminare
+     */
+    public void removePlayer(Giocatore g){
+        Giocatore[] tmp = new Giocatore[rosa.length-1];
+
+        int index = -1;
+        for (int i = 0; i < rosa.length; i++) {
+            if (rosa[i] == g) {
+                index = i;
+                break;
+            }
+        }
+            if (index == -1){
+                System.out.println("Giocatore non trovato");
+            }
+            else {
+                for (int j = 0; j < index; j++) {
+                    tmp[j] = rosa[j];
+                }
+                for (int j = index; j < tmp.length ; j++) {
+                        tmp[j] = rosa[j+1];
+                }
+                rosa = tmp;
+            }
+        }
+
+
+    /**
+     * Funziona che stampa una squadra
+     */
+    public void printRosa(){
+        String s = nome.toUpperCase() + "\n";
+        for(Giocatore g:rosa) {
+              s += g.toString();
+            }
+        System.out.println(s);
+        }
+    }
+
