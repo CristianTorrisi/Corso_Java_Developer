@@ -1,6 +1,6 @@
 package modulo4.seriea;
 
-public class Squadra {
+public class Squadra implements Comparable<Squadra>{
 
     private int id;
     private String nome;
@@ -10,7 +10,7 @@ public class Squadra {
     private int punteggio;
     private static int idTot = 0;
 
-    public Squadra( String nome, Giocatore[] rosa, int gol_fatti, int gol_subiti, int punteggio) {
+    public Squadra(String nome, Giocatore[] rosa, int gol_fatti, int gol_subiti, int punteggio) {
         this.id = idTot;
         idTot++;
         this.nome = nome;
@@ -20,7 +20,7 @@ public class Squadra {
         this.punteggio = punteggio;
     }
 
-    public Squadra(String nome){
+    public Squadra(String nome) {
         this.id = idTot;
         this.nome = nome;
         this.rosa = new Giocatore[0];
@@ -76,10 +76,11 @@ public class Squadra {
 
     /**
      * Aggiungi un giocatore ad una squadra
+     *
      * @param g giocatore da aggiungere
      */
-    public void addPlayer(Giocatore g){
-        Giocatore[] tmp = new Giocatore[rosa.length+1];
+    public void addPlayer(Giocatore g) {
+        Giocatore[] tmp = new Giocatore[rosa.length + 1];
 
         for (int i = 0; i < rosa.length; i++) {
             tmp[i] = rosa[i];
@@ -90,10 +91,11 @@ public class Squadra {
 
     /**
      * Rimuovi un giocatore ad una squadra
+     *
      * @param g giocatore da eliminare
      */
-    public void removePlayer(Giocatore g){
-        Giocatore[] tmp = new Giocatore[rosa.length-1];
+    public void removePlayer(Giocatore g) {
+        Giocatore[] tmp = new Giocatore[rosa.length - 1];
 
         int index = -1;
         for (int i = 0; i < rosa.length; i++) {
@@ -102,30 +104,63 @@ public class Squadra {
                 break;
             }
         }
-            if (index == -1){
-                System.out.println("Giocatore non trovato");
+        if (index == -1) {
+            System.out.println("Giocatore non trovato");
+        } else {
+            for (int j = 0; j < index; j++) {
+                tmp[j] = rosa[j];
             }
-            else {
-                for (int j = 0; j < index; j++) {
-                    tmp[j] = rosa[j];
-                }
-                for (int j = index; j < tmp.length ; j++) {
-                        tmp[j] = rosa[j+1];
-                }
-                rosa = tmp;
+            for (int j = index; j < tmp.length; j++) {
+                tmp[j] = rosa[j + 1];
             }
+            rosa = tmp;
         }
+    }
 
 
     /**
      * Funziona che stampa una squadra
      */
-    public void printRosa(){
+    public void printRosa() {
         String s = nome.toUpperCase() + "\n";
-        for(Giocatore g:rosa) {
-              s += g.toString();
-            }
-        System.out.println(s);
+        for (Giocatore g : rosa) {
+            s += g.toString();
         }
+        System.out.println(s);
     }
 
+    public void vittoria(int gol_fatti, int gol_subiti) {
+        this.punteggio += 3;
+        this.gol_fatti += gol_fatti;
+        this.gol_subiti += gol_subiti;
+    }
+
+    public void pareggio(int gol){
+        this.punteggio+=1;
+        this.gol_fatti += gol;
+        this.gol_subiti += gol;
+    }
+
+    public void sconfitta(int gol_fatti,int gol_subiti){
+        this.gol_fatti += gol_fatti;
+        this.gol_subiti +=gol_subiti;
+    }
+
+    @Override
+    public int compareTo(Squadra o) {
+        if (this.punteggio == o.punteggio){
+            return -((this.gol_fatti-this.gol_subiti) - (o.gol_fatti - o.gol_subiti));
+        }
+      return   -(this.punteggio - o.punteggio);
+    }
+
+    @Override
+    public String toString() {
+        return "Squadra{" +
+                "nome='" + nome + '\'' +
+                ", gol_fatti=" + gol_fatti +
+                ", gol_subiti=" + gol_subiti +
+                ", punteggio=" + punteggio +
+                '}';
+    }
+}

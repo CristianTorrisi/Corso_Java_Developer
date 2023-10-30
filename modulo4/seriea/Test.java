@@ -35,6 +35,23 @@ public class Test {
 
         Squadra[] campionato = {team1,team2,team3};
 
+        Classifica classifica = new Classifica(campionato);
+        Squadra team4 = new Squadra("As Roma");
+        classifica.addTeam(team4);
+        System.out.println(classifica);
+
+        classifica.esitoPartita(team1, team2, 3, 2);
+        classifica.esitoPartita(team3, team4, 1, 1);
+        classifica.esitoPartita(team4, team1, 2, 0);
+        classifica.esitoPartita(team2, team3, 1, 2);
+        classifica.esitoPartita(team3, team1, 3, 1);
+        classifica.esitoPartita(team2, team4, 2, 2);
+
+        classifica.getClassifica();
+        System.out.println(classifica);
+        System.out.println("miglior attacco: "+classifica.miglioreAttacco());
+        System.out.println("peggior difesa: "+classifica.peggiorDifesa());
+
 
 
 
